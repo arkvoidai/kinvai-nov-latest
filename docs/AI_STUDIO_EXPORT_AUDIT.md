@@ -44,3 +44,23 @@ The feature description in the original task was still the placeholder `[describ
 ## Recommendation
 
 Merge the test-runner import correction, then run `bun install --frozen-lockfile`, `bun run lint`, `bun run test`, and `bun run build` in the project environment before deployment. Verify the two duplicate asset references before considering their removal.
+
+
+## AI Studio Build Mode: long-running agent termination (investigation)
+
+The reported message, `Agent execution terminated due to error. An internal error occurred.`, is a Build Mode execution failure, not an HTTP/server error emitted by this repository. The repository audit did not identify a demonstrable application infinite loop or malformed instruction file that explains a repeatable ~20-minute termination. This cannot be diagnosed conclusively from source alone without the failing AI Studio session trace.
+
+Factors worth reducing while reproducing:
+
+- The instruction/context files are sizeable but not enormous: `docs/CHARTER.md` ~11.9 KB, `docs/DECISIONS.md` ~26.2 KB, `docs/AUTH_SETUP.md` ~6.1 KB, `docs/COLOR.md` ~4.7 KB, and `src/pages/DesignPage.tsx` ~43.5 KB. These are not proof of overload, but avoid asking the agent to ingest and rewrite several of them in one task.
+- The export has 10 large AI Studio assets (~13.2 MB total). This is primarily project storage/transfer overhead, not evidence that the agent's reasoning loop is broken.
+- Vite's config contains an intentional `DISABLE_HMR` setting. If it is enabled, file watching and HMR are disabled by design; this may make preview-based validation appear stale, but it does not itself establish the cause of an internal agent termination. Do not remove it without verifying the environment and preview workflow.
+
+### Safe reproduction/triage
+
+1. Reopen Build Mode with a fresh session, without asking it to process all documentation or images.
+2. Ask it to read only the target file and make one small edit, then verify preview.
+3. If it still terminates after a similar elapsed time, treat that as a Build Mode service/session failure and capture the time, prompt, and any visible logs for support. Avoid repeated large retries against the same session.
+4. For work that can be done from the repository, use a local checkout and run `bun run lint`, `bun run test`, and `bun run build` instead of waiting on the Build Mode agent.
+
+No project files were removed or rewritten solely to speculate about the internal error.
