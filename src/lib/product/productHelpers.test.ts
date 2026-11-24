@@ -1,4 +1,4 @@
-import test from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
 import { SEED_COLLECTIONS, SEED_PRODUCTS } from '../data/seed';
 import type { ProductMedia } from '../data/types';
