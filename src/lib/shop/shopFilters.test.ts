@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'vitest';
 import { SEED_COLLECTIONS, SEED_PRODUCTS } from '../data/seed';
 import {
   countActiveFilters,
