@@ -1,0 +1,8 @@
+{
+  "name": "Remix Kinvai",
+  "description": "Ready-made digital systems — spreadsheets, playbooks, templates, creative packs, worldbuilding collections, and design systems by Arkvoid Inc.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

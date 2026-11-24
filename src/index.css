@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+@theme inline {
+  /* Core Surfaces */
+  --color-page: var(--page);
+  --color-page-50: var(--page-50);
+  --color-page-200: var(--page-200);
+  --color-surface: var(--surface);
+  --color-stone: var(--stone);
+  --color-stone-hover: var(--stone-hover);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  /* Ink */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-on-dark: var(--ink-on-dark);
+  --color-ink-on-dark-muted: var(--ink-on-dark-muted);
+
+  /* Brand */
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-ink: var(--brand-ink);
+
+  /* Collection Flat Tints */
+  --color-peach: var(--peach);
+  --color-peach-muted: var(--peach-muted);
+  --color-peach-deep: var(--peach-deep);
+
+  --color-butter: var(--butter);
+  --color-butter-muted: var(--butter-muted);
+  --color-butter-deep: var(--butter-deep);
+
+  --color-lilac: var(--lilac);
+  --color-lilac-muted: var(--lilac-muted);
+  --color-lilac-deep: var(--lilac-deep);
+
+  --color-rose: var(--rose);
+  --color-rose-muted: var(--rose-muted);
+  --color-rose-deep: var(--rose-deep);
+
+  /* Semantic */
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  /* Radii */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-pill: var(--radius-pill);
+
+  /* Shadow */
+  --shadow-float: var(--shadow-float);
+}
